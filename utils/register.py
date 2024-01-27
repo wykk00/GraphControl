@@ -99,19 +99,5 @@ class Register(object):
         self.dataloader[dataloader_class.__name__] = dataloader_class
         return dataloader_class
 
-    def ood_alg_register(self, ood_alg_class):
-        r"""
-        Register for OOD algorithms access.
-
-        Args:
-            ood_alg_class (class): OOD algorithms class
-
-        Returns (class):
-            OOD algorithms class
-
-        """
-        self.ood_algs[ood_alg_class.__name__] = ood_alg_class
-        return ood_alg_class
-
 
 register = Register()  #: The register object used for accessing models, datasets and pre-training algorithms.

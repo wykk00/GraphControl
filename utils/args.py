@@ -14,8 +14,8 @@ class Arguments:
         self.parser.add_argument('--activation', type=str, help="activation function", default='relu', 
                                  choices=['relu', 'elu', 'hardtanh', 'leakyrelu', 'prelu', 'rrelu'])
         self.parser.add_argument('--use_bn', action='store_true', help="use BN or not")
-        self.parser.add_argument('--model', type=str, help="model name", default='GCC_ControlNet', 
-                                 choices=['GCC', 'GCC_ControlNet'])
+        self.parser.add_argument('--model', type=str, help="model name", default='GCC_GraphControl', 
+                                 choices=['GCC', 'GCC_GraphControl'])
     
         # Training settings
         self.parser.add_argument('--optimizer', type=str, help="the kind of optimizer", default='adam', 
@@ -30,7 +30,7 @@ class Arguments:
         self.parser.add_argument('--use_adj', action='store_true', help="use eigen-vectors of adjacent matrix as node attributes")
         self.parser.add_argument('--threshold', type=float, help="the threshold for discreting similarity matrix", default=0.15)
         self.parser.add_argument('--num_dim', type=int, help="the number of replaced node attributes", default=32)     
-        self.parser.add_argument('--ad_aug', action='store_true', help="adversarial augmentation")
+        # self.parser.add_argument('--ad_aug', action='store_true', help="adversarial augmentation")
         self.parser.add_argument('--restart', type=float, help="the restart ratio of random walking", default=0.3)
         self.parser.add_argument('--walk_steps', type=int, help="the number of random walk's steps", default=256)
 

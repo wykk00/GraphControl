@@ -10,13 +10,13 @@ import copy
 from .gcc import GCC
 
 @register.model_register
-class GCC_ControlNet(nn.Module):
+class GCC_GraphControl(nn.Module):
 
     def __init__(
         self,
         **kwargs
     ):
-        super(GCC_ControlNet, self).__init__()
+        super(GCC_GraphControl, self).__init__()
         input_dim = kwargs['positional_embedding_size']
         hidden_size = kwargs['node_hidden_dim']
         output_dim = kwargs['num_classes']

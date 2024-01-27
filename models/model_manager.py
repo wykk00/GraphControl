@@ -4,7 +4,7 @@ from .gcc import change_params_key
 
 
 def load_model(input_dim: int, output_dim: int, config):
-    if config.model in ['GCC', 'GCC_ControlNet']:
+    if config.model in ['GCC', 'GCC_GraphControl']:
         state_dict = torch.load('checkpoint/gcc.pth', map_location='cpu')
         opt = state_dict['opt']
         model = register.models[config.model](
@@ -31,7 +31,7 @@ def load_model(input_dim: int, output_dim: int, config):
         if config.model == 'GCC':
             model.load_state_dict(params)
             return model
-        elif config.model == 'GCC_ControlNet':
+        elif config.model == 'GCC_GraphControl':
             model.encoder.load_state_dict(params)
             model.trainable_copy.load_state_dict(params)
             return model
